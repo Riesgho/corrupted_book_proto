@@ -4,15 +4,15 @@ public class GameplayPresenter
 {
     private const int MAX_HEALTH = 100;
     private IGampeplayView view;
-    public Player Player { get; private set; }
-    public GameplayPresenter(IGampeplayView view)
+    private PlayerConfig player;
+    public GameplayPresenter(IGampeplayView view, PlayerConfig player)
     {
         this.view = view;
+        this.player = player;
     }
 
     public void CreateNewPlayer(string name)
     {
-        Player =  new Player(name, MAX_HEALTH, 0);
         view.ShowPlayerAtPosition(0,0,0);
     }
 }

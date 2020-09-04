@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
+using Assets.CorruptedBook.Domain;
 
 public class HudView : MonoBehaviour, IHudView
 {
+    [SerializeField] TextMeshProUGUI playerCurrentHealthLabel;
+    
+    private Player player;
     private HudPresenter presenter;
-    public void ShowPlayersHealth()
+
+    public void ShowCurrentPlayersHealth(int value)
     {
-        throw new System.NotImplementedException();
+        playerCurrentHealthLabel.text = value.ToString();
     }
 
     // Use this for initialization
     void Start()
     {
-        presenter = new HudPresenter(this);
+        presenter = new HudPresenter(this, player);
         presenter.Init();
     }
 

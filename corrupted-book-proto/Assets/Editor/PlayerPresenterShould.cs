@@ -8,7 +8,8 @@ public class PlayerPresenterShould
     public void StopWhenDestinationIsNotReacheable()
     {
         IPlayerView view = Substitute.For<IPlayerView>();
-        PlayerPresenter presenter = new PlayerPresenter(view);
+        PlayerConfig player = new PlayerConfig();
+        PlayerPresenter presenter = new PlayerPresenter(view, player);
         presenter.MovePlayer(false);
         view.Received(1).StopPlayer();
     }

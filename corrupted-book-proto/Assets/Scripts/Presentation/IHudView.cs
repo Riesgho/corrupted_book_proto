@@ -1,4 +1,4 @@
 ﻿public interface IHudView
 {
-    void ShowPlayersHealth();
+    void ShowCurrentPlayersHealth(int value);
 }

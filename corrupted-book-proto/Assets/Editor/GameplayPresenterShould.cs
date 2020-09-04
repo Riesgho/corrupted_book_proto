@@ -10,53 +10,20 @@ public class GameplayPresenterShould
 
     private IGampeplayView view;
     private GameplayPresenter presenter;
-
+    private PlayerConfig player;
     [SetUp]
     public void SetUp()
     {
         view = Substitute.For<IGampeplayView>();
-        presenter = new GameplayPresenter(view);
+        player = new PlayerConfig();
+        presenter = new GameplayPresenter(view,player);
         presenter.CreateNewPlayer(PLAYER_NAME);
-    }
-
-    [Test]
-    public void CreatePlayerWithAName()
-    {
-        ThenThePlayerHasAName();
-    }
-
-    [Test]
-    public void CreatePlayerWith100PointsMaxHealthOnStart()
-    {
-        ThenPlayerHasMaxHealth();
-    }
-
-    [Test]
-    public void CreatePlayerWith0CorruptionOnStart()
-    {
-        ThenPlayerHasCorruption();
     }
 
     [Test]
     public void ShowPlayerAtWaypoint()
     {
         ThenThePlayerIsShownAtPosition();
-    }
-
-    private void ThenThePlayerHasAName()
-    {
-        Assert.AreEqual(PLAYER_NAME, presenter.Player.Name);
-    }
-
-
-    private void ThenPlayerHasMaxHealth()
-    {
-        Assert.AreEqual(100, presenter.Player.MaxHealth);
-    }
-
-    private void ThenPlayerHasCorruption()
-    {
-        Assert.AreEqual(0, presenter.Player.Corruption);
     }
 
 

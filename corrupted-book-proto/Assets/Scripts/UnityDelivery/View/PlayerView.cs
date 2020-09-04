@@ -8,12 +8,12 @@ public class PlayerView : MonoBehaviour, IPlayerView
     private RaycastHit hit;
     private PlayerPresenter presenter;
     [SerializeField] NavMeshAgent navMeshAgent;
+    [SerializeField] PlayerConfig player;
 
- 
     // Start is called before the first frame update
     void Start()
     {
-        presenter = new PlayerPresenter(this);
+        presenter = new PlayerPresenter(this, player) ;
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class PlayerView : MonoBehaviour, IPlayerView
 
     private void MovePlayer()
     {
-         presenter.MovePlayer( navMeshAgent.path.status != NavMeshPathStatus.PathComplete);
+         presenter.MovePlayer( navMeshAgent.path.status == NavMeshPathStatus.PathComplete);
     }
 
     private bool IsPointAccesable(Ray ray, out RaycastHit hit)
