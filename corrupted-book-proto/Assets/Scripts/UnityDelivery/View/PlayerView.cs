@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.CorruptedBook.Domain;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +8,9 @@ public class PlayerView : MonoBehaviour, IPlayerView
 {
     private RaycastHit hit;
     private PlayerPresenter presenter;
+    private Player player;
+
     [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] PlayerConfig player;
 
     // Start is called before the first frame update
     void Start()

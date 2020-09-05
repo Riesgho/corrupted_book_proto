@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using NSubstitute;
 using NUnit.Framework;
-
-public class GameplayPresenterShould 
+using Assets.CorruptedBook.Domain;
+namespace Assets.Editor.Presentation
 {
-    private const string PLAYER_NAME = "PlayerName" ;
-
-    private IGampeplayView view;
-    private GameplayPresenter presenter;
-    private PlayerConfig player;
-    [SetUp]
-    public void SetUp()
+    public class GameplayPresenterShould
     {
-        view = Substitute.For<IGampeplayView>();
-        player = new PlayerConfig();
-        presenter = new GameplayPresenter(view,player);
-        presenter.CreateNewPlayer(PLAYER_NAME);
-    }
+        private IGampeplayView view;
+        private GameplayPresenter presenter;
+        private Player player;
+        [SetUp]
+        public void SetUp()
+        {
+            view = Substitute.For<IGampeplayView>();
+            player = new Player("Jack", 100, 100, 0,PlayerStatus.Normal);
+            presenter = new GameplayPresenter(view, player);
+            presenter.SetPlayerOnStartPositon();
+        }
 
-    [Test]
-    public void ShowPlayerAtWaypoint()
-    {
-        ThenThePlayerIsShownAtPosition();
-    }
+        [Test]
+        public void ShowPlayerAtWaypoint()
+        {
+            ThenThePlayerIsShownAtPosition();
+        }
 
-
-    private void ThenThePlayerIsShownAtPosition()
-    {
-        view.Received(1).ShowPlayerAtPosition(Arg.Any<float>(), Arg.Any<float>(), Arg.Any<float>());
+        private void ThenThePlayerIsShownAtPosition()
+        {
+            view.Received(1).ShowPlayerAtPosition(Arg.Any<float>(), Arg.Any<float>(), Arg.Any<float>());
+        }
     }
 }

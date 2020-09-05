@@ -19,6 +19,6 @@ public class HudPresenter
 
     public void UpdatePlayersHealth()
     {
-        view.ShowCurrentPlayersHealth(player.CurrentHealth);
+        view.ShowPlayersHealth(player.CurrentHealth, player.MaxHealth);
     }
 }

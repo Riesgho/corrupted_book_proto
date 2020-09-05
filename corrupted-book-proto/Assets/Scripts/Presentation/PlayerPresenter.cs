@@ -1,8 +1,10 @@
-﻿public class PlayerPresenter
+﻿using Assets.CorruptedBook.Domain;
+
+public class PlayerPresenter
 {
     private IPlayerView view;
-    private PlayerConfig player;
-    public PlayerPresenter(IPlayerView view, PlayerConfig player)
+    private Player player;
+    public PlayerPresenter(IPlayerView view, Player player)
     {
         this.view = view;
         this.player = player;

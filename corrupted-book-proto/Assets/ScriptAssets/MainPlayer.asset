@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2f976603c26da479f28bae72fe24f5, type: 3}
   m_Name: MainPlayer
   m_EditorClassIdentifier: 
-  playerName: 
+  playerName: Jack
+  maxHealth: 100
   currentHealth: 0
-  maxHealth: 0
   corruption: 0
