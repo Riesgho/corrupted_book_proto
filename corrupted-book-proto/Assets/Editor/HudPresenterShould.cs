@@ -8,6 +8,7 @@ namespace Assets.Editor.Presentation
     public class HudPresenterShould
     {
         private IHudView view;
+        private IInventory consumableBag;
         private Player player;
         private HudPresenter presenter;
 
@@ -15,7 +16,8 @@ namespace Assets.Editor.Presentation
         public void Setup()
         {
             view = Substitute.For<IHudView>();
-            player = new Player("player", 50, 100, 0,PlayerStatus.Normal);
+            consumableBag = Substitute.For<IInventory>();
+            player = new Player("player", 50, 100, 0, PlayerStatus.Normal, consumableBag);
             presenter = new HudPresenter(view, player);
         }
 
@@ -25,7 +27,6 @@ namespace Assets.Editor.Presentation
             WhenPresenterInits();
             ThenCurrentPlayersHealthIsShown();
         }
-
 
         [Test]
         public void UpdatesPlayersHeatlhBar()

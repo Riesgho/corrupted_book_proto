@@ -12,7 +12,8 @@ namespace Assets.Editor.Presentation
         public void StopWhenDestinationIsNotReacheable()
         {
             IPlayerView view = Substitute.For<IPlayerView>();
-            Player player = new Player("Jack", 100, 100, 0, PlayerStatus.Normal);
+            IInventory consumableBag = Substitute.For<IInventory>();
+            Player player = new Player("Jack", 100, 100, 0, PlayerStatus.Normal, consumableBag);
             PlayerPresenter presenter = new PlayerPresenter(view, player);
             presenter.MovePlayer(false);
             view.Received(1).StopPlayer();

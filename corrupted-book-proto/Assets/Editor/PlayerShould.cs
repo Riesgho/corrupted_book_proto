@@ -1,5 +1,6 @@
 ﻿
 using Assets.CorruptedBook.Domain;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Assets.Editor.Domain
@@ -9,11 +10,14 @@ namespace Assets.Editor.Domain
         private Player player;
         private int amountToModify = 20;
         private int healthDelta = 0;
-
+        private IInventory consumableBag;
+        private IItem consumable;
         [SetUp]
         public void Setup()
         {
-            player = new Player("Player", 100, 90, 0, PlayerStatus.Normal);
+            consumable = Substitute.For<IItem>();
+            consumableBag = Substitute.For<IInventory>();
+            player = new Player("Player", 100, 90, 0, PlayerStatus.Normal, consumableBag);
         }
 
         [Test]
@@ -50,8 +54,24 @@ namespace Assets.Editor.Domain
         public void ChangePlayerStatusToDeadWhenHealthIsZero()
         {
             WhenPlayerReceiveDamage(player.MaxHealth);
-            Assert.AreEqual(PlayerStatus.Dead, player.PlayerStatus);
+            ThenThePlayerIsDead();
         }
+
+        [Test]
+        public void AddConsumableToConsumableBag()
+        {
+            WhenPlayerAddItem();
+            ThenTheItemIsAddedToTheBag();
+        }
+
+
+        [Test]
+        public void RemoveTheConsumableAfterItsUse()
+        {
+            WhenPlayerConsumeAnItem();
+            TheItemIsRemovedFromTheBag();
+        }
+
 
         private void GivenADiferenceBetweenMaxAndCurrentHealth()
         {
@@ -74,6 +94,14 @@ namespace Assets.Editor.Domain
         {
             player.AddCurrentHealth(value);
         }
+        private void WhenPlayerAddItem()
+        {
+            player.AddItemToInventory(consumable);
+        }
+        private void WhenPlayerConsumeAnItem()
+        {
+            player.ConsumeItem(consumable);
+        }
         private void ThenPlayersHealthIsReduced()
         {
             Assert.AreEqual(healthDelta + amountToModify, player.MaxHealth - player.CurrentHealth);
@@ -92,6 +120,19 @@ namespace Assets.Editor.Domain
         {
             Assert.AreEqual(0, player.CurrentHealth);
         }
+        private void ThenTheItemIsAddedToTheBag()
+        {
+            consumableBag.Received(1).AddItem(consumable);
+        }
 
+        private void TheItemIsRemovedFromTheBag()
+        {
+            consumableBag.Received(1).RemoveItem(consumable);
+        }
+
+        private void ThenThePlayerIsDead()
+        {
+            Assert.AreEqual(PlayerStatus.Dead, player.PlayerStatus);
+        }
     }
 }

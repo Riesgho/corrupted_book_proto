@@ -63,6 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Application\GameInitializer.cs" />
+    <Compile Include="Assets\Scripts\Domain\Consumable.cs" />
+    <Compile Include="Assets\Scripts\Domain\ConsumableBag.cs" />
+    <Compile Include="Assets\Scripts\Domain\Interfaces\IInventory.cs" />
+    <Compile Include="Assets\Scripts\Domain\Interfaces\IItem.cs" />
+    <Compile Include="Assets\Scripts\Domain\Interfaces\ITool.cs" />
     <Compile Include="Assets\Scripts\Domain\Player.cs" />
     <Compile Include="Assets\Scripts\Domain\PlayerConfig.cs" />
     <Compile Include="Assets\Scripts\NavMeshComponents\Scripts\NavMeshLink.cs" />

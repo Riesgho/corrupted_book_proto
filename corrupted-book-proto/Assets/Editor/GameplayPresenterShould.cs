@@ -9,13 +9,15 @@ namespace Assets.Editor.Presentation
     public class GameplayPresenterShould
     {
         private IGampeplayView view;
+        private IInventory consumableBag;
         private GameplayPresenter presenter;
         private Player player;
         [SetUp]
         public void SetUp()
         {
             view = Substitute.For<IGampeplayView>();
-            player = new Player("Jack", 100, 100, 0,PlayerStatus.Normal);
+            consumableBag = Substitute.For<IInventory>();
+            player = new Player("Jack", 100, 100, 0,PlayerStatus.Normal, consumableBag);
             presenter = new GameplayPresenter(view, player);
             presenter.SetPlayerOnStartPositon();
         }

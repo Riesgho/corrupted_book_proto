@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.CorruptedBook.Domain;
+using UnityEditor;
 
 public class GameInitializer : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class GameInitializer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = new Player(playerConfig.PlayerName, playerConfig.MaxHealth, playerConfig.CurrentHealth, playerConfig.Corruption, playerConfig.PlayerStatus);
+        player = new Player(playerConfig.PlayerName, playerConfig.MaxHealth, playerConfig.CurrentHealth, playerConfig.Corruption, playerConfig.PlayerStatus, new ConsumableBag());
         gameplayView.OnStart(player);
         hudView.OnStart(player);
     }
