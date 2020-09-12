@@ -1,4 +1,6 @@
-﻿using Assets.CorruptedBook.Domain;
+﻿using System;
+using Assets.CorruptedBook.Domain;
+using NSubstitute.Core;
 
 public class PlayerPresenter
 {
@@ -16,13 +18,24 @@ public class PlayerPresenter
          view.StopPlayer();
     }
 
-    public void AddItemToInventory(IItem consumable)
+    private void AddItemToInventory(IItem consumable)
     {
+        view.ShowPickUpAction();//TODO: This is an observable, that adds the item when completes.
         player.AddItemToInventory(consumable);
+        
     }
 
     public void ConsumeItem(IItem consumable)
     {
         player.ConsumeItem(consumable);
+    }
+
+
+    public void PickUpItem(IItem consumable)
+    {
+       if(view.IsTargetedItemAtDistance())
+        {
+            AddItemToInventory(consumable);
+        }
     }
 }

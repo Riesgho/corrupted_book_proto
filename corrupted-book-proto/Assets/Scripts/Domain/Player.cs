@@ -12,8 +12,9 @@ namespace Assets.CorruptedBook.Domain
         public string Name { get; set; }
         public PlayerStatus PlayerStatus { get; set; }
         public IInventory ConsumableBag { get; private set; }
+        public float InteractionDistance { get; internal set; }
 
-        public Player(string name, int maxHealth, int currentHealth, int corruption, PlayerStatus playerStatus, IInventory consumableBag)
+        public Player(string name, int maxHealth, int currentHealth, int corruption, PlayerStatus playerStatus, IInventory consumableBag, float interactionDistance)
         {
             Name = name;
             MaxHealth = maxHealth;
@@ -21,6 +22,7 @@ namespace Assets.CorruptedBook.Domain
             Corruption = corruption;
             PlayerStatus = playerStatus;
             ConsumableBag = consumableBag;
+            InteractionDistance = interactionDistance;
         }
 
         public void AddCurrentHealth(int healthAmount)

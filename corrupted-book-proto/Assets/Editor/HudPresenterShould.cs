@@ -17,7 +17,7 @@ namespace Assets.Editor.Presentation
         {
             view = Substitute.For<IHudView>();
             consumableBag = Substitute.For<IInventory>();
-            player = new Player("player", 50, 100, 0, PlayerStatus.Normal, consumableBag);
+            player = new Player("player", 50, 100, 0, PlayerStatus.Normal, consumableBag,1);
             presenter = new HudPresenter(view, player);
         }
 

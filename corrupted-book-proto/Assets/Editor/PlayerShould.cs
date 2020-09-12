@@ -17,7 +17,7 @@ namespace Assets.Editor.Domain
         {
             consumable = Substitute.For<IItem>();
             consumableBag = Substitute.For<IInventory>();
-            player = new Player("Player", 100, 90, 0, PlayerStatus.Normal, consumableBag);
+            player = new Player("Player", 100, 90, 0, PlayerStatus.Normal, consumableBag,1);
         }
 
         [Test]

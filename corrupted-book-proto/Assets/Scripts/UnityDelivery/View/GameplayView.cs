@@ -4,8 +4,6 @@ using UnityEngine;
 public class GameplayView : MonoBehaviour, IGampeplayView
 {
     [SerializeField] PlayerView playerView;
-     
-    private Player player;
     private GameplayPresenter presenter;
 
     public void ShowPlayerAtPosition(float x, float y, float z)
@@ -19,15 +17,19 @@ public class GameplayView : MonoBehaviour, IGampeplayView
         presenter.SetPlayerOnStartPositon();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-      
-    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (Physics.Raycast(ray, out hit))
+            {
+                var clickedGameObject = hit.transform.gameObject.GetComponent<IItemView>();
+                if (clickedGameObject != null)
+                    playerView.PickUpItem(clickedGameObject);
+            }
+        }
     }
 }

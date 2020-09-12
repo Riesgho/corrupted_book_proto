@@ -17,7 +17,7 @@ namespace Assets.Editor.Presentation
         {
             view = Substitute.For<IGampeplayView>();
             consumableBag = Substitute.For<IInventory>();
-            player = new Player("Jack", 100, 100, 0,PlayerStatus.Normal, consumableBag);
+            player = new Player("Jack", 100, 100, 0,PlayerStatus.Normal, consumableBag,1);
             presenter = new GameplayPresenter(view, player);
             presenter.SetPlayerOnStartPositon();
         }

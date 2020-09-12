@@ -1,6 +1,5 @@
 ﻿using Assets.CorruptedBook.Domain;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,7 +8,7 @@ public class PlayerView : MonoBehaviour, IPlayerView
     private RaycastHit hit;
     private PlayerPresenter presenter;
     private Player player;
-
+    private IItemView targetedItem;
     [SerializeField] NavMeshAgent navMeshAgent;
 
     // Start is called before the first frame update
@@ -37,6 +36,12 @@ public class PlayerView : MonoBehaviour, IPlayerView
         navMeshAgent.ResetPath();
     }
 
+    public void PickUpItem(IItemView clickedGameObject)
+    {
+        targetedItem = clickedGameObject;
+        presenter.PickUpItem(targetedItem.GetItem());
+    }
+
     private void MovePlayer()
     {
          presenter.MovePlayer( navMeshAgent.path.status == NavMeshPathStatus.PathComplete);
@@ -45,5 +50,15 @@ public class PlayerView : MonoBehaviour, IPlayerView
     private bool IsPointAccesable(Ray ray, out RaycastHit hit)
     {
        return Physics.Raycast(ray, out hit);
+    }
+
+    public void ShowPickUpAction()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool IsTargetedItemAtDistance()
+    {
+        return Vector3.Distance(targetedItem.GetPosition(), transform.position) <= player.InteractionDistance;
     }
 }

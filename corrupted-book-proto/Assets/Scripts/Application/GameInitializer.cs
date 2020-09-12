@@ -12,7 +12,7 @@ public class GameInitializer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = new Player(playerConfig.PlayerName, playerConfig.MaxHealth, playerConfig.CurrentHealth, playerConfig.Corruption, playerConfig.PlayerStatus, new ConsumableBag());
+        player = new Player(playerConfig.PlayerName, playerConfig.MaxHealth, playerConfig.CurrentHealth, playerConfig.Corruption, playerConfig.PlayerStatus, new ConsumableBag(),1);
         gameplayView.OnStart(player);
         hudView.OnStart(player);
     }

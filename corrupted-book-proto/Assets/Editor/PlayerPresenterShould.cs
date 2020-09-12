@@ -14,12 +14,12 @@ namespace Assets.Editor.Presentation
         private Player player;
         PlayerPresenter presenter;
         [SetUp]
-        public void PickUpAndItem()
+        public void Setup()
         {
             consumable = Substitute.For<IItem>();
             view = Substitute.For<IPlayerView>();
             consumableBag  = Substitute.For<IInventory>();
-            player = new Player("Jack", 100, 100, 0, PlayerStatus.Normal, consumableBag);
+            player = new Player("Jack", 100, 100, 0, PlayerStatus.Normal, consumableBag,1);
             presenter = new PlayerPresenter(view, player);
         }
 
@@ -31,10 +31,11 @@ namespace Assets.Editor.Presentation
         }
 
         [Test]
-        public void PickUpAConsumable()
+        public void PickUpAndItem()
         {
-            WhenPlayerAddItem();
-            ThenTheItemIsAddedToTheBag();
+            view.IsTargetedItemAtDistance().Returns(true);
+            presenter.PickUpItem(consumable);
+            view.Received(1).ShowPickUpAction();
         }
 
         [Test]
@@ -55,11 +56,6 @@ namespace Assets.Editor.Presentation
             presenter.MovePlayer(false);
         }
 
-
-        private void WhenPlayerAddItem()
-        {
-            presenter.AddItemToInventory(consumable);
-        }
 
         private void ThenTheItemIsAddedToTheBag()
         {
