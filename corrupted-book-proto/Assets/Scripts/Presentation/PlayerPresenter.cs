@@ -15,4 +15,14 @@ public class PlayerPresenter
         if(!canMove)
          view.StopPlayer();
     }
+
+    public void AddItemToInventory(IItem consumable)
+    {
+        player.AddItemToInventory(consumable);
+    }
+
+    public void ConsumeItem(IItem consumable)
+    {
+        player.ConsumeItem(consumable);
+    }
 }
