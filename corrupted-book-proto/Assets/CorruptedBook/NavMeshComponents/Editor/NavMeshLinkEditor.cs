@@ -1,11 +1,13 @@
+using CorruptedBook.NavMeshComponents.Scripts;
+using UnityEditor;
+using UnityEditor.AI;
 using UnityEngine;
-using UnityEngine.AI;
 
-namespace UnityEditor.AI
+namespace CorruptedBook.NavMeshComponents.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NavMeshLink))]
-    class NavMeshLinkEditor : Editor
+    class NavMeshLinkEditor : UnityEditor.Editor
     {
         SerializedProperty m_AgentTypeID;
         SerializedProperty m_Area;

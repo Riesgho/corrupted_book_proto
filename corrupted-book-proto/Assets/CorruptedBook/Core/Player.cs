@@ -1,8 +1,6 @@
 ﻿
 
-using System;
-
-namespace Assets.CorruptedBook.Domain
+namespace CorruptedBook.Core
 {
     public class Player
     {

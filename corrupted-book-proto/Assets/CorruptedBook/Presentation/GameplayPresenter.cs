@@ -1,25 +1,21 @@
-﻿
-using Assets.CorruptedBook.Core.Providers;
-using System;
+﻿using CorruptedBook.Core.Providers;
 
-public class GameplayPresenter
+namespace CorruptedBook.Presentation
 {
-    private IGampeplayView view;
-    private IEssenceProvider itemProvider;
-    public GameplayPresenter(IGampeplayView view, IEssenceProvider itemProvider)
+    public class GameplayPresenter
     {
-        this.view = view;
-        this.itemProvider = itemProvider;
-    }
+        private IGamePlayView view;
+        private IEssenceProvider itemProvider;
+        public GameplayPresenter(IGamePlayView view)
+        {
+            this.view = view;
+            this.itemProvider = itemProvider;
+        }
 
-    public void SetPlayerOnStartPositon()
-    {
-        view.ShowPlayerAtPosition(0,0,0);
-    }
-
-    public void CreateConsumable()
-    {
-        var consumable = itemProvider.GetEssence();
-        view.ShowEssence(consumable);
+        public void SetPlayerOnStartPosition()
+        {
+            view.ShowPlayerAtPosition(0,0,0);
+        }
+        
     }
 }

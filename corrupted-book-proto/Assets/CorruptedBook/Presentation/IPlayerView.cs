@@ -1,8 +1,7 @@
-﻿using Assets.CorruptedBook.Domain;
-
-public interface IPlayerView
+﻿namespace CorruptedBook.Presentation
 {
-    void StopPlayer();
-    void ShowPickUpAction();
-    bool IsTargetedItemAtDistance();
+    public interface IPlayerView
+    {
+        void StopPlayer();
+    }
 }

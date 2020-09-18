@@ -1,4 +1,7 @@
-﻿public interface IHudView
+﻿namespace CorruptedBook.Presentation
 {
-    void ShowPlayersHealth(int current, int max);
+    public interface IHudView
+    {
+        void ShowPlayersHealth(int current, int max);
+    }
 }

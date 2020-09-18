@@ -1,12 +1,6 @@
-﻿using Assets.CorruptedBook.Core;
-using Assets.CorruptedBook.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Assets.CorruptedBook.Domain
+namespace CorruptedBook.Core
 {
     public class EssenceBag
     {

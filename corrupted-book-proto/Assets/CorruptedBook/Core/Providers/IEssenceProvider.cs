@@ -1,6 +1,4 @@
-﻿using Assets.CorruptedBook.Domain;
-
-namespace Assets.CorruptedBook.Core.Providers
+﻿namespace CorruptedBook.Core.Providers
 {
     public interface IEssenceProvider
     {   

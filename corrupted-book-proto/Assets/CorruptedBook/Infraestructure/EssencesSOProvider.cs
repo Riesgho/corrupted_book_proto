@@ -1,9 +1,17 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using Assets.CorruptedBook.Core;
+﻿using System.Collections.Generic;
+using CorruptedBook.Core;
+using CorruptedBook.Core.Providers;
+using UnityEngine;
 
-[CreateAssetMenu]
-public class EssencesSOProvider : ScriptableObject
+namespace CorruptedBook.Infraestructure
 {
-    public List<Essence> essences = new List<Essence>();
+    [CreateAssetMenu]
+    public class EssencesSOProvider : ScriptableObject, IEssenceProvider
+    {
+        [SerializeField] private List<Essence> essences = new List<Essence>();
+        public Essence GetEssence()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }
