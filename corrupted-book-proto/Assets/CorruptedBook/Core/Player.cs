@@ -32,7 +32,7 @@ namespace CorruptedBook.Core
             AddCurrentHealth(healthAmount);
         }
 
-        public void SustractCurrentHealth(int healthAmount)
+        public void SubtractCurrentHealth(int healthAmount)
         {
             CurrentHealth = CurrentHealth - healthAmount <= 0 ? 0 : CurrentHealth - healthAmount;
             if (CurrentHealth <= 0) PlayerStatus = PlayerStatus.Dead;

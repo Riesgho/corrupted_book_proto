@@ -1,6 +1,7 @@
 ﻿using System;
 using CorruptedBook.Core;
 using CorruptedBook.Presentation;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,29 +9,26 @@ namespace CorruptedBook.UnityDelivery.View
 {
     public class PlayerView : MonoBehaviour, IPlayerView
     {
-        private RaycastHit hit;
-        private PlayerPresenter presenter;
-        private Player player;
-        [SerializeField] Camera camera;
+     
         [SerializeField] NavMeshAgent navMeshAgent;
-
-        // Start is called before the first frame update
-        void Start()
+        
+        
+        private PlayerPresenter presenter;
+        private Subject<Unit> onMovePlayer;
+        
+        public void OnStart(Player player)
         {
-            presenter = new PlayerPresenter(this, player) ;
+            presenter = new PlayerPresenter(this, player);
+            onMovePlayer =  new Subject<Unit>();
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (Input.GetMouseButtonUp(0))
+            if (navMeshAgent.hasPath && navMeshAgent.remainingDistance < 0.1f)//TODO : Pasar a corutina
             {
-                if (IsPointAccesable(camera.ScreenPointToRay(Input.mousePosition), out hit))
-                {
-                    navMeshAgent.SetDestination(hit.point);
-                }
+               onMovePlayer.OnCompleted();
             }
-            MovePlayer();
         }
 
         public void StopPlayer()
@@ -38,16 +36,24 @@ namespace CorruptedBook.UnityDelivery.View
             navMeshAgent.isStopped = true;
             navMeshAgent.ResetPath();
         }
-        
-        private void MovePlayer()
+
+        public IObservable<Unit> MoveToInteractable(IInteractable interactableObject)
         {
-            presenter.MovePlayer( navMeshAgent.path.status == NavMeshPathStatus.PathComplete);
+            onMovePlayer =  new Subject<Unit>();
+            return onMovePlayer.DoOnSubscribe(() => navMeshAgent.SetDestination(interactableObject.GetPosition()))
+                .DoOnCompleted(StopPlayer)
+                .AsUnitObservable();
         }
 
-        private bool IsPointAccesable(Ray ray, out RaycastHit hit)
+        public void MovePlayer(Vector3 position)
         {
-            return Physics.Raycast(ray, out hit);
+            navMeshAgent.SetDestination(position);//TODO: Obserable waiting to path to be completed
+            presenter.MovePlayer(navMeshAgent.path.status == NavMeshPathStatus.PathComplete);
         }
 
+        public void TryInteractionWith(IInteractable interactableObject)
+        {
+            presenter.Interact(interactableObject);
+        }
     }
 }

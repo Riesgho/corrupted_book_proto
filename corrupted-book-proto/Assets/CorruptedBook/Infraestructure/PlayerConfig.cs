@@ -11,10 +11,18 @@ namespace CorruptedBook.Infraestructure
         [SerializeField] private int currentHealth;
         [SerializeField] private int corruption;
         [SerializeField] private PlayerStatus playerStatus;
-        public string PlayerName { get => playerName; }
-        public int MaxHealth { get => maxHealth; }
-        public int CurrentHealth { get => currentHealth; }
-        public int Corruption { get => corruption; }
-        public PlayerStatus PlayerStatus { get => playerStatus; }
+        [SerializeField] private float interactionDistance;
+
+        public string PlayerName => playerName;
+
+        public int MaxHealth => maxHealth;
+
+        public int CurrentHealth => currentHealth;
+
+        public int Corruption => corruption;
+
+        public PlayerStatus PlayerStatus => playerStatus;
+
+        public float InteractionDistance => interactionDistance;
     }
 }

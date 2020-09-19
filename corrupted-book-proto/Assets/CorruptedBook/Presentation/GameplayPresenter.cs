@@ -1,15 +1,11 @@
-﻿using CorruptedBook.Core.Providers;
-
-namespace CorruptedBook.Presentation
+﻿namespace CorruptedBook.Presentation
 {
     public class GameplayPresenter
     {
         private IGamePlayView view;
-        private IEssenceProvider itemProvider;
         public GameplayPresenter(IGamePlayView view)
         {
             this.view = view;
-            this.itemProvider = itemProvider;
         }
 
         public void SetPlayerOnStartPosition()

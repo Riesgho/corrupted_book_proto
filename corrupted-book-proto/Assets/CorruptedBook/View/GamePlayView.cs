@@ -1,6 +1,4 @@
-﻿using CorruptedBook.Core;
-using CorruptedBook.Core.Providers;
-using CorruptedBook.Presentation;
+﻿using CorruptedBook.Presentation;
 using UnityEngine;
 
 namespace CorruptedBook.UnityDelivery.View

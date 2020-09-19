@@ -9,11 +9,9 @@ namespace Assets.Editor.Domain
         private Player player;
         private int amountToModify = 20;
         private int healthDelta = 0;
-        private Essence consumable;
         [SetUp]
         public void Setup()
         {
-            consumable = new Essence();
             player = new Player("Player", 100, 90, 0, PlayerStatus.Normal,1);
         }
 
@@ -27,7 +25,7 @@ namespace Assets.Editor.Domain
         [Test]
         public void IncreaseCurrentHealthWhenMaxHealthIsIncreased()
         {
-            GivenADiferenceBetweenMaxAndCurrentHealth();
+            GivenADifferenceBetweenMaxAndCurrentHealth();
             WhenPlayersMaxHealthIsIncreased();
             ThenTheDifferenceStaysTheSame();
         }
@@ -35,7 +33,7 @@ namespace Assets.Editor.Domain
         [Test]
         public void ReduceCurrentHealthWhenReceiveDamage()
         {
-            GivenADiferenceBetweenMaxAndCurrentHealth();
+            GivenADifferenceBetweenMaxAndCurrentHealth();
             WhenPlayerReceiveDamage(amountToModify);
             ThenPlayersHealthIsReduced();
         }
@@ -54,14 +52,14 @@ namespace Assets.Editor.Domain
             ThenThePlayerIsDead();
         }
 
-        private void GivenADiferenceBetweenMaxAndCurrentHealth()
+        private void GivenADifferenceBetweenMaxAndCurrentHealth()
         {
             healthDelta = player.MaxHealth - player.CurrentHealth;
         }
 
         private void WhenPlayerReceiveDamage(int value)
         {
-            player.SustractCurrentHealth(value);
+            player.SubtractCurrentHealth(value);
         }
 
 

@@ -24,15 +24,10 @@
             <e p="GameInitializer.cs" t="Include" />
           </e>
           <e p="Core" t="Include">
-            <e p="Essence.cs" t="Include" />
-            <e p="EssenceBag.cs" t="Include" />
+            <e p="IInteractable.cs" t="Include" />
             <e p="Player.cs" t="Include" />
-            <e p="Providers" t="Include">
-              <e p="IEssenceProvider.cs" t="Include" />
-            </e>
           </e>
           <e p="Infraestructure" t="Include">
-            <e p="EssencesSOProvider.cs" t="Include" />
             <e p="PlayerConfig.cs" t="Include" />
           </e>
           <e p="NavMeshComponents" t="Include">
@@ -59,10 +54,12 @@
             <e p="PlayerPresenter.cs" t="Include" />
           </e>
           <e p="View" t="Include">
+            <e p="DoorView.cs" t="Include" />
             <e p="GameplayView.cs" t="Include" />
             <e p="HudView.cs" t="Include" />
             <e p="MainMenuView.cs" t="Include" />
             <e p="PlayerView.cs" t="Include" />
+            <e p="WalkableZone.cs" t="Include" />
           </e>
         </e>
         <e p="Plugins" t="Include">
