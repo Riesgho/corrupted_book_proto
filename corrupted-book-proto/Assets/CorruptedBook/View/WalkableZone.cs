@@ -1,4 +1,5 @@
 ﻿using System;
+using CorruptedBook.View;
 using UnityEngine;
 
 namespace CorruptedBook.UnityDelivery.View

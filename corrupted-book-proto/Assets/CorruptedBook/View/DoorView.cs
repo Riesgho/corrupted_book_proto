@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CorruptedBook.Core;
 using CorruptedBook.UnityDelivery.View;
+using CorruptedBook.View;
 using UnityEngine;
 using UnityEngine.AI;
 

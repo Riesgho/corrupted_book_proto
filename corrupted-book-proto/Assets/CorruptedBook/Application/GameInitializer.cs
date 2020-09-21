@@ -1,6 +1,7 @@
 ﻿using CorruptedBook.Core;
 using CorruptedBook.Infraestructure;
 using CorruptedBook.UnityDelivery.View;
+using CorruptedBook.View;
 using UnityEngine;
 using UnityEngine.Serialization;
 
