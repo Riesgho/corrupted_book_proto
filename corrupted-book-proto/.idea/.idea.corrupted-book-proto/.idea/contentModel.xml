@@ -1,66 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\riesg\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\riesg\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_corrupted-book-proto.-1695094733.00" t="ExcludeRecursive" />
-    <e p="D:\Users\Leandro\Documents\Repos\corrupted_book_proto\corrupted-book-proto" t="IncludeRecursive">
+    <e p="C:\Users\Usuario\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Usuario\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_corrupted-book-proto.1920395011.00" t="ExcludeRecursive" />
+    <e p="H:\corrupted_book_proto\corrupted-book-proto" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Assets" t="Include">
-          <e p="Editor" t="Include">
-            <e p="Domain" t="Include">
-              <e p="PlayerShould.cs" t="Include" />
-            </e>
-            <e p="Presentation" t="Include">
-              <e p="GameplayPresenterShould.cs" t="Include" />
-              <e p="HudPresenterShould.cs" t="Include" />
-              <e p="PlayerPresenterShould.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="CorruptedBook" t="Include">
-          <e p="Application" t="Include">
-            <e p="GameInitializer.cs" t="Include" />
-          </e>
-          <e p="Core" t="Include">
-            <e p="IInteractable.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
-          </e>
-          <e p="Infraestructure" t="Include">
-            <e p="PlayerConfig.cs" t="Include" />
-          </e>
-          <e p="NavMeshComponents" t="Include">
-            <e p="Editor" t="Include">
-              <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
-              <e p="NavMeshLinkEditor.cs" t="Include" />
-              <e p="NavMeshModifierEditor.cs" t="Include" />
-              <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
-              <e p="NavMeshSurfaceEditor.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="NavMeshLink.cs" t="Include" />
-              <e p="NavMeshModifier.cs" t="Include" />
-              <e p="NavMeshModifierVolume.cs" t="Include" />
-              <e p="NavMeshSurface.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Presentation" t="Include">
-            <e p="GameplayPresenter.cs" t="Include" />
-            <e p="HudPresenter.cs" t="Include" />
-            <e p="IGameplayView.cs" t="Include" />
-            <e p="IHudView.cs" t="Include" />
-            <e p="IPlayerView.cs" t="Include" />
-            <e p="PlayerPresenter.cs" t="Include" />
-          </e>
-          <e p="View" t="Include">
-            <e p="DoorView.cs" t="Include" />
-            <e p="GameplayView.cs" t="Include" />
-            <e p="HudView.cs" t="Include" />
-            <e p="MainMenuView.cs" t="Include" />
-            <e p="PlayerView.cs" t="Include" />
-            <e p="WalkableZone.cs" t="Include" />
-          </e>
+        <e p="Editor" t="Include">
+          <e p="GameplayPresenterShould.cs" t="Include" />
+          <e p="HudPresenterShould.cs" t="Include" />
+          <e p="PlayerPresenterShould.cs" t="Include" />
+          <e p="PlayerShould.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="UniRx" t="Include">
@@ -78,7 +29,6 @@
               <e p="Sample11_Logger.cs" t="Include" />
               <e p="Sample12_ReactiveProperty.cs" t="Include" />
               <e p="Sample13_ToDoApp.cs" t="Include" />
-              <e p="UniRx.Examples.asmdef" t="Include" />
             </e>
             <e p="Scripts" t="Include">
               <e p="Asynchronous" t="Include">
@@ -245,7 +195,6 @@
               </e>
               <e p="TimeInterval.cs" t="Include" />
               <e p="Timestamped.cs" t="Include" />
-              <e p="UniRx.asmdef" t="Include" />
               <e p="UnityEngineBridge" t="Include">
                 <e p="AsyncOperationExtensions.cs" t="Include" />
                 <e p="CancellationToken.cs" t="Include" />
@@ -339,6 +288,53 @@
                 <e p="Thread.cs" t="Include" />
                 <e p="ThreadPoolScheduler_UnityWinRT.cs" t="Include" />
               </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Application" t="Include">
+            <e p="GameInitializer.cs" t="Include" />
+          </e>
+          <e p="Domain" t="Include">
+            <e p="Consumable.cs" t="Include" />
+            <e p="ConsumableBag.cs" t="Include" />
+            <e p="Interfaces" t="Include">
+              <e p="IInventory.cs" t="Include" />
+              <e p="IItem.cs" t="Include" />
+              <e p="ITool.cs" t="Include" />
+            </e>
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerConfig.cs" t="Include" />
+          </e>
+          <e p="NavMeshComponents" t="Include">
+            <e p="Editor" t="Include">
+              <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+              <e p="NavMeshLinkEditor.cs" t="Include" />
+              <e p="NavMeshModifierEditor.cs" t="Include" />
+              <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+              <e p="NavMeshSurfaceEditor.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="NavMeshLink.cs" t="Include" />
+              <e p="NavMeshModifier.cs" t="Include" />
+              <e p="NavMeshModifierVolume.cs" t="Include" />
+              <e p="NavMeshSurface.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Presentation" t="Include">
+            <e p="GameplayPresenter.cs" t="Include" />
+            <e p="HudPresenter.cs" t="Include" />
+            <e p="IGameplayView.cs" t="Include" />
+            <e p="IHudView.cs" t="Include" />
+            <e p="IPlayerView.cs" t="Include" />
+            <e p="PlayerPresenter.cs" t="Include" />
+          </e>
+          <e p="UnityDelivery" t="Include">
+            <e p="View" t="Include">
+              <e p="GameplayView.cs" t="Include" />
+              <e p="HudView.cs" t="Include" />
+              <e p="MainMenuView.cs" t="Include" />
+              <e p="PlayerView.cs" t="Include" />
             </e>
           </e>
         </e>
