@@ -7,5 +7,6 @@ namespace CorruptedBook.Presentation
     {
         void DisplayItems(List<Item> itemsToDisplay);
         void Open();
+        void HideItems();
     }
 }

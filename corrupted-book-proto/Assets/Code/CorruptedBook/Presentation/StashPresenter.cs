@@ -19,5 +19,10 @@ namespace CorruptedBook.Presentation
         {
             view.DisplayItems(itemProvider.GenerateItems(2));
         }
+
+        public void Close()
+        {
+            view.HideItems();
+        }
     }
 }
