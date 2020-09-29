@@ -42,5 +42,14 @@ namespace Test.Presentation
             presenter.Close();
             view.Received(1).HideItems();
         }
+
+        [Test]
+        public void DisplayPreviousGeneratedItemsWhenOpenForSecondTime()
+        {
+            presenter.Open();
+            presenter.Open();
+            itemProvider.Received(1).GenerateItems(Arg.Any<int>());
+            view.Received(2).DisplayItems(itemsToDisplay);
+        }
     }
 }

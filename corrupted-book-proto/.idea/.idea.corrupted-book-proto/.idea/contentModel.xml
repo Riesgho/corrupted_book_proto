@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\riesg\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\riesg\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_corrupted-book-proto.-1695094733.00" t="ExcludeRecursive" />
-    <e p="D:\Users\Leandro\Documents\Repos\corrupted_book_proto\corrupted-book-proto" t="IncludeRecursive">
+    <e p="C:\Users\Usuario\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Usuario\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_corrupted-book-proto.1920395011.00" t="ExcludeRecursive" />
+    <e p="H:\corrupted_book_proto\corrupted-book-proto" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -244,7 +244,6 @@
               </e>
               <e p="TimeInterval.cs" t="Include" />
               <e p="Timestamped.cs" t="Include" />
-              <e p="UniRx.asmdef" t="Include" />
               <e p="UnityEngineBridge" t="Include">
                 <e p="AsyncOperationExtensions.cs" t="Include" />
                 <e p="CancellationToken.cs" t="Include" />
