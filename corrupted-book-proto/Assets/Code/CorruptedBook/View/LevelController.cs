@@ -2,6 +2,7 @@
 using CorruptedBook.Core.Providers;
 using UnityEngine;
 using System.Linq;
+using CorruptedBook.Presentation;
 
 namespace CorruptedBook.View
 {
@@ -10,7 +11,7 @@ namespace CorruptedBook.View
         [SerializeField] private DoorView[] doors;
         [SerializeField] private WorldStashView[] stashes;
 
-        public void OnStart(PlayerView player, IItemProvider itemProvider, IRandomProvider randomProvider)
+        public void OnStart(PlayerView player, IItemProvider itemProvider, IRandomProvider randomProvider, IInventoryRepository inventoryRepository)
         {
             foreach (var door in doors)
             {
@@ -19,7 +20,7 @@ namespace CorruptedBook.View
 
             foreach (var worldStash in stashes)
             {
-                worldStash.OnStart(player, itemProvider,  randomProvider);
+                worldStash.OnStart(player, itemProvider,  randomProvider,inventoryRepository);
             }
         }
     }

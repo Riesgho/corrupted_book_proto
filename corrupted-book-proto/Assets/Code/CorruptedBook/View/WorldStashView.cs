@@ -1,6 +1,7 @@
 ﻿using System;
 using CorruptedBook.Core;
 using CorruptedBook.Core.Providers;
+using CorruptedBook.Presentation;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,10 +16,10 @@ namespace CorruptedBook.View
         private static readonly int Open = Animator.StringToHash("Open");
         private bool open = false;
 
-        public void OnStart(PlayerView playerView, IItemProvider itemProvider, IRandomProvider randomProvider)
+        public void OnStart(PlayerView playerView, IItemProvider itemProvider, IRandomProvider randomProvider, IInventoryRepository inventoryRepository)
         {
             this.playerView = playerView;
-            stashView.OnStart(itemProvider, randomProvider);
+            stashView.OnStart(itemProvider, randomProvider,inventoryRepository);
         }
 
         private void OnMouseUp()

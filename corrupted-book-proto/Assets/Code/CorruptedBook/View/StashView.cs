@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using CorruptedBook.Core;
 using CorruptedBook.Core.Providers;
@@ -11,16 +12,20 @@ namespace CorruptedBook.View
 {
     public class StashView : MonoBehaviour, IStashView
     {
-        [SerializeField] private Image[] items;
+        [SerializeField] private ItemStashStashView[] items;
         [SerializeField] private Button closeStashButton;
         [SerializeField] private GameObject panel;
-        private StashPresenter presenter;
         
-        public void OnStart(IItemProvider itemProvider, IRandomProvider randomProvider)
+        private StashPresenter presenter;
+        private IInventoryRepository inventoryRepository;
+        
+        
+        public void OnStart(IItemProvider itemProvider, IRandomProvider randomProvider, IInventoryRepository inventoryRepository)
         {
             HideItems();
             presenter = new StashPresenter(this, itemProvider, randomProvider );
             closeStashButton.onClick.AddListener(()=> presenter.Close());
+            this.inventoryRepository = inventoryRepository;
         }
 
         public void DisplayItems(List<Item> itemsToDisplay)
@@ -29,6 +34,7 @@ namespace CorruptedBook.View
             for (var i = 0; i < itemsToDisplay.Count; i++)
             {
                 items[i].gameObject.SetActive(true);
+                items[i].OnStart(inventoryRepository,itemsToDisplay[i]);
             }
         }
 
@@ -46,16 +52,4 @@ namespace CorruptedBook.View
             }
         }
     }
-
-//    [Serializable]
-//    public class ItemView
-//    {
-//        [SerializeField] private Image image;
-//
-//        public Image Image
-//        {
-//            get => image;
-//            set => image = value;
-//        }
-//    }
 }

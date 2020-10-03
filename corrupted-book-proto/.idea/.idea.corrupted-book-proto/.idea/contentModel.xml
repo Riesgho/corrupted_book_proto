@@ -46,8 +46,11 @@
               <e p="HudPresenter.cs" t="Include" />
               <e p="IGameplayView.cs" t="Include" />
               <e p="IHudView.cs" t="Include" />
+              <e p="IInventoryRepository.cs" t="Include" />
+              <e p="IItemStashView.cs" t="Include" />
               <e p="IPlayerView.cs" t="Include" />
               <e p="IStashView.cs" t="Include" />
+              <e p="ItemStashPresenter.cs" t="Include" />
               <e p="PlayerPresenter.cs" t="Include" />
               <e p="StashPresenter.cs" t="Include" />
             </e>
@@ -55,6 +58,7 @@
               <e p="DoorView.cs" t="Include" />
               <e p="GameplayView.cs" t="Include" />
               <e p="HudView.cs" t="Include" />
+              <e p="ItemStashStashView.cs" t="Include" />
               <e p="LevelController.cs" t="Include" />
               <e p="MainMenuView.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
@@ -71,6 +75,7 @@
               <e p="Presentation" t="Include">
                 <e p="GameplayPresenterShould.cs" t="Include" />
                 <e p="HudPresenterShould.cs" t="Include" />
+                <e p="ItemStashPresenterShould.cs" t="Include" />
                 <e p="PlayerPresenterShould.cs" t="Include" />
                 <e p="StashPresenterShould.cs" t="Include" />
               </e>

@@ -16,7 +16,7 @@ namespace CorruptedBook.Infrastructure
             var itemsGenerated = new List<Item>();
             for (int i = 0; i < amountToGenerate; i++)
             {
-                var itemToAdd = items.First(item => item.Id == Random.Range(0, items.Count - 1));
+                var itemToAdd = items[Random.Range(0, items.Count)];
                 itemsGenerated.Add(itemToAdd);
             }
             return itemsGenerated;

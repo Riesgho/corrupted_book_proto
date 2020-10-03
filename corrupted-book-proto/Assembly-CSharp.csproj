@@ -75,13 +75,17 @@
      <Compile Include="Assets\Code\CorruptedBook\Presentation\HudPresenter.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IGamePlayView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IHudView.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\Presentation\IInventoryRepository.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\Presentation\IItemStashView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IPlayerView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IStashView.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\Presentation\ItemStashPresenter.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\PlayerPresenter.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\StashPresenter.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\DoorView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\GamePlayView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\HudView.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\View\ItemStashStashView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\LevelController.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\MainMenuView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\View\PlayerView.cs" />

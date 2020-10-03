@@ -4,6 +4,7 @@ using CorruptedBook.Core.Providers;
 using CorruptedBook.Presentation;
 using NSubstitute;
 using NUnit.Framework;
+using TMPro;
 
 namespace Test.Presentation
 {
@@ -51,5 +52,6 @@ namespace Test.Presentation
             itemProvider.Received(1).GenerateItems(Arg.Any<int>());
             view.Received(2).DisplayItems(itemsToDisplay);
         }
+        
     }
 }
