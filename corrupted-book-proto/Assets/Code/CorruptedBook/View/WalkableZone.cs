@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace CorruptedBook.View
 {
@@ -10,8 +11,10 @@ namespace CorruptedBook.View
 
         private void OnMouseUp()
         {
-            if (IsPointAccesable(camera.ScreenPointToRay(Input.mousePosition), out hit))
+            if (!IsPointAccesable(camera.ScreenPointToRay(Input.mousePosition), out hit)) return;
+            if(!EventSystem.current.IsPointerOverGameObject ())//TODO: Todos los "onmouse bla" deberian hacer esto
                 playerView.MovePlayer(hit.point);
+
         }
 
         private bool IsPointAccesable(Ray ray, out RaycastHit hitPoint)

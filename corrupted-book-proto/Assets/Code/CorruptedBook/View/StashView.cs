@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using CorruptedBook.Core;
-using CorruptedBook.Core.Providers;
+﻿using CorruptedBook.Core.Providers;
 using CorruptedBook.Presentation;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
 namespace CorruptedBook.View
 {
@@ -15,35 +10,36 @@ namespace CorruptedBook.View
         [SerializeField] private ItemStashStashView[] items;
         [SerializeField] private Button closeStashButton;
         [SerializeField] private GameObject panel;
-        
+
         private StashPresenter presenter;
-        private IInventoryRepository inventoryRepository;
-        
-        
-        public void OnStart(IItemProvider itemProvider, IRandomProvider randomProvider, IInventoryRepository inventoryRepository)
+
+        public void OnStart(IItemProvider itemProvider, IRandomProvider randomProvider,
+            IInventoryRepository inventoryRepository)
         {
-            HideItems();
-            presenter = new StashPresenter(this, itemProvider, randomProvider );
-            closeStashButton.onClick.AddListener(()=> presenter.Close());
-            this.inventoryRepository = inventoryRepository;
+            Hide();
+            presenter = new StashPresenter(this, itemProvider, randomProvider, inventoryRepository);
+            closeStashButton.onClick.AddListener(() => presenter.Close());
         }
 
-        public void DisplayItems(List<Item> itemsToDisplay)
+        public void UpdateItemsInStash()
         {
+            Hide();
             panel.SetActive(true);
-            for (var i = 0; i < itemsToDisplay.Count; i++)
+            for (var i = 0; i < presenter.ItemsInStash.Count; i++)
             {
                 items[i].gameObject.SetActive(true);
-                items[i].OnStart(inventoryRepository,itemsToDisplay[i]);
+                var i1 = i;
+                items[i].Init(()=>presenter.SaveItem(presenter.ItemsInStash[i1]));
+                items[i].UpdateItemInformation(presenter.ItemsInStash[i]);
             }
         }
 
         public void Open()
         {
-           presenter.Open();
+            presenter.Open();
         }
 
-        public void HideItems()
+        public void Hide()
         {
             panel.SetActive(false);
             foreach (var item in items)

@@ -4,6 +4,6 @@ namespace CorruptedBook.Core.Providers
 {
     public interface IItemProvider
     {
-        List<Item> GenerateItems(int id);
+        List<Item> GenerateItems(int amount);
     }
 }

@@ -5,8 +5,7 @@ namespace CorruptedBook.Presentation
 {
     public interface IStashView
     {
-        void DisplayItems(List<Item> itemsToDisplay);
-        void Open();
-        void HideItems();
+        void UpdateItemsInStash();
+        void Hide();
     }
 }

@@ -11,10 +11,10 @@ namespace CorruptedBook.Infrastructure
     public class ItemProvider : ScriptableObject, IItemProvider
     {
         [SerializeField] private List<Item> items = new List<Item>();
-        public List<Item> GenerateItems(int amountToGenerate)
+        public List<Item> GenerateItems(int amount)
         {
             var itemsGenerated = new List<Item>();
-            for (int i = 0; i < amountToGenerate; i++)
+            for (int i = 0; i < amount; i++)
             {
                 var itemToAdd = items[Random.Range(0, items.Count)];
                 itemsGenerated.Add(itemToAdd);
