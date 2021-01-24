@@ -14,6 +14,7 @@
             </e>
             <e p="Core" t="Include">
               <e p="IInteractable.cs" t="Include" />
+              <e p="IInventoryRepository.cs" t="Include" />
               <e p="Item.cs" t="Include" />
               <e p="Player.cs" t="Include" />
               <e p="Providers" t="Include">
@@ -22,6 +23,7 @@
               </e>
             </e>
             <e p="Infrastructure" t="Include">
+              <e p="InventoryRepository.cs" t="Include" />
               <e p="ItemProvider.cs" t="Include" />
               <e p="PlayerConfig.cs" t="Include" />
               <e p="RandomProvider.cs" t="Include" />
@@ -46,7 +48,6 @@
               <e p="HudPresenter.cs" t="Include" />
               <e p="IGameplayView.cs" t="Include" />
               <e p="IHudView.cs" t="Include" />
-              <e p="IInventoryRepository.cs" t="Include" />
               <e p="IItemStashView.cs" t="Include" />
               <e p="IPlayerView.cs" t="Include" />
               <e p="IStashView.cs" t="Include" />

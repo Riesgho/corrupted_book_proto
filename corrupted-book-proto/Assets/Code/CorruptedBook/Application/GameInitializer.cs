@@ -1,7 +1,5 @@
-﻿using Boo.Lang;
-using CorruptedBook.Core;
+﻿using CorruptedBook.Core;
 using CorruptedBook.Infrastructure;
-using CorruptedBook.Presentation;
 using CorruptedBook.View;
 using UnityEngine;
 
@@ -27,19 +25,5 @@ namespace CorruptedBook.Application
             levelController.OnStart(playerView,itemProvider,randomProvider, new InventoryRepository());
         }
 
-    }
-
-    public class InventoryRepository: IInventoryRepository
-    {
-        private List<Item> items;
-
-        public InventoryRepository()
-        {
-            items = new List<Item>();
-        }
-        public void AddItem(Item item)
-        {
-            items.Add(item);
-        }
     }
 }

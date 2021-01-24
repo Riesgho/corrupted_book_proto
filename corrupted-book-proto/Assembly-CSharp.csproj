@@ -60,10 +60,12 @@
   <ItemGroup>
      <Compile Include="Assets\Code\CorruptedBook\Application\GameInitializer.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Core\IInteractable.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\Core\IInventoryRepository.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Core\Item.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Core\Player.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Core\Providers\IItemProvider.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Core\Providers\IRandomProvider.cs" />
+     <Compile Include="Assets\Code\CorruptedBook\Infrastructure\InventoryRepository.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Infrastructure\ItemProvider.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Infrastructure\PlayerConfig.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Infrastructure\RandomProvider.cs" />
@@ -75,7 +77,6 @@
      <Compile Include="Assets\Code\CorruptedBook\Presentation\HudPresenter.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IGamePlayView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IHudView.cs" />
-     <Compile Include="Assets\Code\CorruptedBook\Presentation\IInventoryRepository.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IItemStashView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IPlayerView.cs" />
      <Compile Include="Assets\Code\CorruptedBook\Presentation\IStashView.cs" />
