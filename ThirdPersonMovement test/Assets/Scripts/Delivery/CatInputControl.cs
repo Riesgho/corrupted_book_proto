@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Delivery
 {
-    public class Mover : MonoBehaviour
+    public class CatInputControl : MonoBehaviour
     {
         private MoveCat _moveCatCat;
         private Jump _jump;

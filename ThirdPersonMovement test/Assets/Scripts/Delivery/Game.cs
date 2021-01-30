@@ -12,7 +12,7 @@ namespace Delivery
     public class Game : MonoBehaviour
     {
         [SerializeField] private CatView _cat;
-        [SerializeField] private Mover _mover;
+        [SerializeField] private CatInputControl catInputControl;
 
         private void Start()
         {
@@ -21,7 +21,7 @@ namespace Delivery
             var inGameCat = new InGameCat(cat);
             var moveAction = new MoveCat(inGameCat);
             var jumpAction = new Jump(inGameCat);
-            _mover.Initialize(moveAction, jumpAction, inGameCat);
+            catInputControl.Initialize(moveAction, jumpAction, inGameCat);
             
         }
     }
