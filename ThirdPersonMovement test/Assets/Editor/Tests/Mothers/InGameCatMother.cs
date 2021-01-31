@@ -7,9 +7,6 @@ namespace Editor.Tests.Mothers
 {
     public static class InGameCatMother
     {
-        public static InGameCat AnInGameCat(Cat? withCat = default)
-        {
-            return new InGameCat(withCat ?? default);
-        }
+        public static InGameCat AnInGameCat(Cat? withCat = default) => new InGameCat(withCat ?? default);
     }
 }

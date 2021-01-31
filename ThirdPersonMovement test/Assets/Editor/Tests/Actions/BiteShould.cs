@@ -1,6 +1,13 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Domain.Actions;
+using Editor.Tests.Mothers;
 using Infrastructure;
 using NUnit.Framework;
+using UnityEngine;
+using static Editor.Tests.Mothers.BiteMother;
+using static Editor.Tests.Mothers.ThingsMother;
 using static Editor.Tests.Mothers.CatMother;
 using static Editor.Tests.Mothers.InGameCatMother;
 
@@ -9,56 +16,74 @@ namespace Editor.Tests.Actions
     public class BiteShould
     {
         [Test]
-        public void AddAThingToBitten()
+        public void BiteWhenThingIsInRangeAndFacingThing()
         {
+            var cat = ACat(withPosition: Vector3.zero, withBiteRange: 1, withFacingDirection: new Vector3(1,0,1));
+            var inGameCat = AnInGameCat(cat);
             var thingId = 0;
-            var thing = new Thing(thingId);
-            var inGameThings = new InGameThings(new []{thing});
-            var bite = new Bite(inGameThings);
-            
+            var thing = AThing(withId: 0, withBittenStatus: false, withPosition: new Vector3(0.5f, 0, 0.5f));
+            var inGameThings = new InGameThings(new[] {thing});
+            var bite = ABite(withInGameThings: inGameThings, withAnInGameCat: inGameCat);
+
             bite.Execute(thing);
 
-            var actualValue = inGameThings.GetBittenGetThing();
-            var expectedValue = new Thing(0); 
+            var actualValue = inGameThings.Get(0);
+            var expectedValue = AThing(withId: 0, withBittenStatus: true, withPosition: Vector3.zero);
             Assert.AreEqual(expectedValue, actualValue);
-        } 
-    }
+        }
 
-    public class InGameThings
-    {
-        private readonly Thing[] _things;
-        private Thing _bitten;
-        public InGameThings(Thing[] things)
+        [Test]
+        public void DoNotBiteWhenIsNotFacingThingOnZAxis()
         {
-            _things = things;
+            var cat = ACat(withPosition: Vector3.zero, withBiteRange: 1, withFacingDirection: Vector3.forward);
+            var inGameCat = AnInGameCat(cat);
+            var thingId = 0;
+            var thingPosition = new Vector3(0, 0, -0.5f);
+            var thing = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            var inGameThings = new InGameThings(new[] {thing});
+            var bite = ABite(withInGameThings: inGameThings, withAnInGameCat: inGameCat);
+
+            bite.Execute(thing);
+
+            var actualValue = inGameThings.Get(0);
+            var expectedValue = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            Assert.AreEqual(expectedValue, actualValue);
         }
         
-        public Thing GetBittenGetThing() => _bitten;
-
-        public void UpdateBittenThing(Thing thing) => _bitten = thing;
-    }
-
-    public class Bite
-    {
-        private readonly InGameThings _inGameThings;
-
-        public Bite( InGameThings inGameThings) => _inGameThings = inGameThings;
-
-        public void Execute(Thing thing) => _inGameThings.UpdateBittenThing(thing);
-    }
-
-    public struct Thing
-    {
-        private readonly int _id;
-
-        public Thing(int id)
+        [Test]
+        public void DoNotBiteWhenIsNotFacingThingOnXAxis()
         {
-            _id = id;
+            var cat = ACat(withPosition: Vector3.zero, withBiteRange: 1, withFacingDirection: Vector3.forward);
+            var inGameCat = AnInGameCat(cat);
+            var thingId = 0;
+            var thingPosition = new Vector3(-0.5f, 0, 0.5f);
+            var thing = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            var inGameThings = new InGameThings(new[] {thing});
+            var bite = ABite(withInGameThings: inGameThings, withAnInGameCat: inGameCat);
+
+            bite.Execute(thing);
+
+            var actualValue = inGameThings.Get(0);
+            var expectedValue = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            Assert.AreEqual(expectedValue, actualValue);
         }
-
-        public override string ToString()
+        
+        [Test]
+        public void DoNotBiteWhenIsNotFacingThingOnYAxis()
         {
-            return $"Id: {_id}";
+            var cat = ACat(withPosition: Vector3.zero, withBiteRange: 1, withFacingDirection: new Vector3(1,0,1));
+            var inGameCat = AnInGameCat(cat);
+            var thingId = 0;
+            var thingPosition = new Vector3(0.5f, 0.5f, 0.5f);
+            var thing = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            var inGameThings = new InGameThings(new[] {thing});
+            var bite = ABite(withInGameThings: inGameThings, withAnInGameCat: inGameCat);
+
+            bite.Execute(thing);
+
+            var actualValue = inGameThings.Get(0);
+            var expectedValue = AThing(withId: 0, withBittenStatus: false, withPosition: thingPosition);
+            Assert.AreEqual(expectedValue, actualValue);
         }
     }
 }

@@ -17,12 +17,11 @@ namespace Delivery
         private void Start()
         {
             var startPosition = new Vector3(0, _cat.transform.position.y, 0);
-            var cat = new Cat(startPosition, 10, Cat.CatStatus.Grounded, Vector3.zero);
+            var cat = new Cat(startPosition, 10, Cat.CatStatus.Grounded, Vector3.zero, 1,Vector3.forward);
             var inGameCat = new InGameCat(cat);
             var moveAction = new MoveCat(inGameCat);
             var jumpAction = new Jump(inGameCat);
             catInputControl.Initialize(moveAction, jumpAction, inGameCat);
-            
         }
     }
 }
